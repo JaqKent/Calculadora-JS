@@ -1,0 +1,74 @@
+@import "./variables";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: monospace, sans-serif;
+  font-weight: normal;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-image: url(./assets/blue-digits-background-math-concept-numbers-digits-texture-blue-backgrounds.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: $black;
+}
+
+.calculator-grid {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+
+  button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid $White;
+    outline: none;
+    background-color: $whitesmoke;
+
+    &:hover {
+      background-color: $White;
+    }
+  }
+
+  .span-two {
+    grid-column: span 2;
+  }
+  .row-span {
+    grid-column-start: 4;
+    grid-row: 4/6;
+  }
+
+  .output {
+    grid-column: 1 / -1;
+    background-color: $black;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+
+    .previous-operand {
+      color: $whitesmoke;
+      font-size: 1.5rem;
+    }
+
+    .current-operand {
+      color: $White;
+      font-size: 2.5rem;
+    }
+  }
+}
